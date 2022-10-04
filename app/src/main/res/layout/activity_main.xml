@@ -89,7 +89,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
+
+
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/managePersonalInfoCard"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:elevation="5dp"
@@ -103,8 +106,7 @@
                     android:layout_marginTop="3dp"
                     android:layout_marginBottom="3dp"
                     app:cardCornerRadius="18dp"
-                    app:cardElevation="5dp"
-                    >
+                    app:cardElevation="5dp">
 
 
                     <LinearLayout
@@ -147,6 +149,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/viewTimetableCard"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:elevation="5dp"
@@ -209,6 +212,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/viewGradesCard"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:elevation="5dp"
@@ -378,6 +382,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/chatAssistanceCard"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:elevation="5dp"

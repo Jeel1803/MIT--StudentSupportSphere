@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#E0E0E0"
-    tools:context=".MainActivity" >
-
+    tools:context=".managePersonalDetails">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -69,7 +68,7 @@
                     android:src="@drawable/mit_reduced">
 
                 </ImageView>
-                
+
 
 
 
@@ -238,6 +237,5 @@
 
 
     </LinearLayout>
-
 
 </androidx.core.widget.NestedScrollView>
