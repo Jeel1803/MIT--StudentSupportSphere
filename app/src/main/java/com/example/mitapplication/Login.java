@@ -1,12 +1,13 @@
 package com.example.mitapplication;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,10 +17,17 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class Login extends AppCompatActivity {
     EditText Email, Password;
-    Button Login;
+    Button Login, registrationButton;
     FirebaseAuth fAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +37,7 @@ public class Login extends AppCompatActivity {
         Email = findViewById(R.id.emailEditText);
         Password = findViewById(R.id.passwordEditText);
         Login = findViewById(R.id.loginButton);
+        registrationButton = findViewById(R.id.registrationButton);
         fAuth = FirebaseAuth.getInstance();
 
         Login.setOnClickListener(new View.OnClickListener() {
@@ -54,7 +63,7 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(Login.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, "Logged in Successfully" , Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         }
                         else{
@@ -68,5 +77,10 @@ public class Login extends AppCompatActivity {
             }
         });
 
+    }
+
+
+    public  void  register(View v){
+        startActivity(new Intent(getApplicationContext(), Registration.class));
     }
 }
