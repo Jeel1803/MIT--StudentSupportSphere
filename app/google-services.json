@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "534300492378",
+    "project_id": "mitapp-b22ec",
+    "storage_bucket": "mitapp-b22ec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:534300492378:android:7ff2d375b69723bddfce63",
+        "android_client_info": {
+          "package_name": "com.example.mitapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "534300492378-q3h7u4qec51f4ql8enrfa6cfc7s6lc26.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYjQIGkQP38qLxn7rPazZYzTB_nT-KDKU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "534300492378-q3h7u4qec51f4ql8enrfa6cfc7s6lc26.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
