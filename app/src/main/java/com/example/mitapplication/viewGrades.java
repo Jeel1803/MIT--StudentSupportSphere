@@ -40,12 +40,10 @@ import java.util.List;
 public class viewGrades extends AppCompatActivity {
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
-    String userId;
+    String userId, grade;
     Spinner spinner;
     List<String> courses = new ArrayList<>();
-    RecyclerView marksList;
-    TextView assignment1, assignment2, test, marks1, marks2, testMarks, totalMarks;
-    String courseDoc;
+    TextView assignment1, assignment2, test, marks1, marks2, testMarks, totalMarks,courseName, grades;
 
 
     @Override
@@ -63,8 +61,9 @@ public class viewGrades extends AppCompatActivity {
         marks2 = findViewById(R.id.marks2);
         testMarks = findViewById(R.id.testMarks);
         totalMarks = findViewById(R.id.totalMarks);
+        courseName = findViewById(R.id.courseName);
+        grades = findViewById(R.id.grade);
 
-        //marksList = findViewById(R.id.marksList);
 
 
         CollectionReference df = fStore.collection("students").document(userId).collection("Course");
@@ -84,19 +83,56 @@ public class viewGrades extends AppCompatActivity {
                         @Override
                         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                             String item = parent.getSelectedItem().toString();
-                            df
-                                    .whereEqualTo("Name", item)
-                                    .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            df.whereEqualTo("Name", item).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                         @Override
                                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                             for (QueryDocumentSnapshot document : task.getResult()){
+                                                courseName.setText(document.getString("Name"));
                                                 String assignemnt = document.getData().get("Assignment1").toString();
                                                 marks1.setText(assignemnt + " / 30");
                                                 String assignment2 = document.getData().get("Assignment2").toString();
                                                 marks2.setText(assignment2 + " / 40") ;
                                                 String test = document.getData().get("Test").toString();
                                                 testMarks.setText(test + " / 30");
-
+                                                int total =  Integer.parseInt(assignemnt) + Integer.parseInt(assignment2) + Integer.parseInt(test);
+                                                totalMarks.setText(String.valueOf(total));
+                                                if(total >= 90 &&  total<= 100){
+                                                    grade = "A+";
+                                                }
+                                                if(total >= 85 &&  total<= 89){
+                                                    grade = "A";
+                                                }
+                                                if(total >= 80 &&  total<= 84){
+                                                    grade = "A-";
+                                                }
+                                                if(total >= 75 &&  total<= 79){
+                                                    grade = "B+";
+                                                }
+                                                if(total >= 70 &&  total<= 74){
+                                                    grade = "B";
+                                                }
+                                                if(total >= 65 &&  total<= 69){
+                                                    grade = "B-";
+                                                }
+                                                if(total >= 60 &&  total<= 64){
+                                                    grade = "C+";
+                                                }
+                                                if(total >= 55 &&  total<= 59){
+                                                    grade = "C";
+                                                }
+                                                if(total >= 50 &&  total<= 54){
+                                                    grade = "C-";
+                                                }
+                                                if(total >= 45 &&  total<= 49){
+                                                    grade = "D+";
+                                                }
+                                                if(total >= 40 &&  total<= 44){
+                                                    grade = "D";
+                                                }
+                                                if(total >= 0 &&  total<= 39){
+                                                    grade = "D-";
+                                                }
+                                                grades.setText(grade);
 
                                             }
                                         }
@@ -116,6 +152,9 @@ public class viewGrades extends AppCompatActivity {
             }
         });
     }
+
+
+
 }
 
 
