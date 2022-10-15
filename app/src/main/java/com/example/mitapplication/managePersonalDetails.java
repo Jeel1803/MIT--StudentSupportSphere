@@ -89,9 +89,10 @@ public class managePersonalDetails extends AppCompatActivity {
                         DocumentReference documentReference = fStore.collection("students").document(userId);
                         Map<String,Object> edited = new HashMap<>();
                         edited.put("Email", email);
-                        edited.put("Name", Name);
-                        edited.put("Address", Address);
-                        edited.put("Password", Phone);
+                        edited.put("Name", Name.getText().toString());
+                        edited.put("Address", Address.getText().toString());
+                        edited.put("Password", Phone.getText().toString());
+                        documentReference.update(edited);
                         Toast.makeText(managePersonalDetails.this, "Hello",Toast.LENGTH_SHORT).show();
 
                         documentReference.update(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
