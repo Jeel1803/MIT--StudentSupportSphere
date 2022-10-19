@@ -76,13 +76,14 @@
 
         </LinearLayout>
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileImage"
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_marginStart="64dp"
+            android:src="@drawable/user"
             android:layout_marginEnd="64dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="-50dp"
-            android:src="@drawable/jeel"
             android:elevation="5dp"
             android:paddingTop="10dp"
             android:paddingBottom="5dp">
@@ -106,14 +107,23 @@
                 android:layout_marginTop="0dp"
                 android:orientation="vertical">
                 <TextView
+                    android:id="@+id/username"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="25dp"
                     android:textSize="15dp"
-                    android:text="jeel@mit.com">
+                    android:text="">
 
                 </TextView>
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                   android:src="@drawable/ic_baseline_edit_24"
+                    android:background="@color/white"
+                    android:tooltipText="Edit"
+                    android:onClick="edit"
+                    android:layout_gravity="right"/>
 
 
                 <LinearLayout
@@ -211,6 +221,25 @@
                 </LinearLayout>
 
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical" >
+                    <EditText
+                        android:id="@+id/password"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_margin="5dp"
+                        android:textAlignment="center"
+                        android:hint="Password:"
+                        android:paddingLeft="5dp">
+                    </EditText>
+
+
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -226,14 +255,16 @@
                         android:layout_marginLeft="60dp"
                         android:layout_marginRight="60dp"
                         android:textAlignment="center"
-                        android:hint="Save"
+                        android:text="Save"
                         android:textColor="#FFFFFF"
                         android:paddingLeft="5dp"
-                        android:inputType="">
+                        >
                     </Button>
 
 
                 </LinearLayout>
+
+
 
 
 
