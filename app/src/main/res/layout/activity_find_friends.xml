@@ -7,11 +7,75 @@
     android:layout_height="match_parent"
     tools:context="com.example.mitapplication.findFriends">
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/bg_header"
+        android:orientation="horizontal"
+        android:baselineAligned="false">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/txt_appbar_listActivity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentEnd="false"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="21dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="7dp"
+                android:layout_marginBottom="7dp"
+                android:gravity="left"
+                android:text="Find Friends"
+                android:textColor="@color/white"
+                android:textSize="35dp" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentEnd="false"
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="21dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="7dp"
+                android:gravity="right"
+                android:src="@drawable/mit_reduced">
+
+            </ImageView>
+
+        </RelativeLayout>
+    </LinearLayout>
+
     <Button
         android:text="ON/OFF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_gravity="center"
         android:layout_alignParentRight="true"
         android:id="@+id/btnONOFF"/>
 
@@ -20,6 +84,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnDiscoverable_on_off"
+        android:layout_gravity="center"
         android:onClick="btnEnableDisable_Discoverable"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"/>
@@ -29,6 +94,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/btnFindUnpairedDevices"
         android:text="Discover"
+        android:layout_gravity="center"
         android:onClick="btnDiscover"/>
 
     <ListView
@@ -36,4 +102,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/lvNewDevices"/>
+    </LinearLayout>
 </RelativeLayout>

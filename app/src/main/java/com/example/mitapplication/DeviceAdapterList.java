@@ -13,21 +13,21 @@ import java.util.ArrayList;
 
 public class DeviceAdapterList extends ArrayAdapter<BluetoothDevice> {
 
-    private LayoutInflater mLayoutInflater;
-    private ArrayList<BluetoothDevice> mDevices;
-    private int  mViewResourceId;
+    private LayoutInflater layoutInflater;
+    private ArrayList<BluetoothDevice> devices;
+    private int  viewResource;
 
     public DeviceAdapterList(Context context, int tvResourceId, ArrayList<BluetoothDevice> devices){
         super(context, tvResourceId,devices);
-        this.mDevices = devices;
-        mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        mViewResourceId = tvResourceId;
+        this.devices = devices;
+        layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        viewResource = tvResourceId;
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
-        convertView = mLayoutInflater.inflate(mViewResourceId, null);
+        convertView = layoutInflater.inflate(viewResource, null);
 
-        BluetoothDevice device = mDevices.get(position);
+        BluetoothDevice device = devices.get(position);
 
         if (device != null) {
             TextView deviceName = (TextView) convertView.findViewById(R.id.tvDeviceName);
@@ -37,7 +37,7 @@ public class DeviceAdapterList extends ArrayAdapter<BluetoothDevice> {
                 deviceName.setText(device.getName());
             }
             if (deviceAdress != null) {
-               // deviceAdress.setText(device.getAddress());
+                deviceAdress.setText(device.getAddress());
             }
         }
 

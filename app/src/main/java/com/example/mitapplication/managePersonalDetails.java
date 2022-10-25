@@ -82,10 +82,10 @@ public class managePersonalDetails extends AppCompatActivity {
         profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
-                Toast.makeText(managePersonalDetails.this, "Fetching Image1", Toast.LENGTH_LONG).show();
+                //Toast.makeText(managePersonalDetails.this, "Fetching Image1", Toast.LENGTH_LONG).show();
 
                 Picasso.get().load(uri).into(ProfileImage);
-                Toast.makeText(managePersonalDetails.this, "Fetching Image", Toast.LENGTH_LONG).show();
+               // Toast.makeText(managePersonalDetails.this, "Fetching Image", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -139,7 +139,7 @@ public class managePersonalDetails extends AppCompatActivity {
 
 
                         documentReference.update(edited);
-                        Toast.makeText(managePersonalDetails.this, "Hello",Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(managePersonalDetails.this, "Hello",Toast.LENGTH_SHORT).show();
 
                         documentReference.update(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
