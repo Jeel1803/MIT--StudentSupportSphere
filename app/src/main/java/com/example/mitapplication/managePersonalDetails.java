@@ -4,13 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,25 +17,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.jar.Attributes;
 
 public class managePersonalDetails extends AppCompatActivity {
     EditText Sid, Name, Address, Phone, Email, Password;
@@ -47,7 +45,7 @@ public class managePersonalDetails extends AppCompatActivity {
     String userId;
     ImageView ProfileImage;
     Button Save;
-
+    StorageReference storageReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +75,19 @@ public class managePersonalDetails extends AppCompatActivity {
         fStore = FirebaseFirestore.getInstance();
         userId = fAuth.getCurrentUser().getUid();
         user = fAuth.getCurrentUser();
+        storageReference = FirebaseStorage.getInstance().getReference();
+
+
+        StorageReference profileRef = storageReference.child("users/"+fAuth.getCurrentUser().getUid()+"/profile.jpg");
+        profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Toast.makeText(managePersonalDetails.this, "Fetching Image1", Toast.LENGTH_LONG).show();
+
+                Picasso.get().load(uri).into(ProfileImage);
+                Toast.makeText(managePersonalDetails.this, "Fetching Image", Toast.LENGTH_LONG).show();
+            }
+        });
 
         DocumentReference documentReference = fStore.collection("students").document(userId);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
@@ -158,6 +169,7 @@ public class managePersonalDetails extends AppCompatActivity {
                 Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
                 photoPickerIntent.setType("image/*");
                 startActivityForResult(photoPickerIntent, 1000);
+
             }
         });
 
@@ -170,19 +182,40 @@ public class managePersonalDetails extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
-            try {
-                final Uri imageUri = data.getData();
-                final InputStream imageStream = getContentResolver().openInputStream(imageUri);
-                final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
-                ProfileImage.setImageBitmap(selectedImage);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-                Toast.makeText(managePersonalDetails.this, "Something went wrong", Toast.LENGTH_LONG).show();
-            }
+            final Uri imageUri = data.getData();
+            //ProfileImage.setImageURI(imageUri);
+            uploadImageToFirebase(imageUri);
+            Toast.makeText(managePersonalDetails.this, "Uploading",Toast.LENGTH_LONG).show();
+
 
         }else {
             Toast.makeText(managePersonalDetails.this, "You haven't picked Image",Toast.LENGTH_LONG).show();
+
         }
+    }
+
+    private void uploadImageToFirebase(Uri imageUri) {
+        StorageReference fileRef = storageReference.child("users/"+fAuth.getCurrentUser().getUid()+"/profile.jpg");
+        fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        Picasso.get().load(uri).into(ProfileImage);
+                    }
+                });
+                Toast.makeText(managePersonalDetails.this, "Image Uploaded",Toast.LENGTH_LONG).show();
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(managePersonalDetails.this, "Failed",Toast.LENGTH_LONG).show();
+
+            }
+        });
+
     }
 
     public void edit(View view) {

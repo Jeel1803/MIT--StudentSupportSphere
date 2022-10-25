@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.findFriendsCard:
-                intent = new Intent(this, findFriend.class);
+                intent = new Intent(this, findFriends.class);
                 startActivity(intent);
                 break;
         }

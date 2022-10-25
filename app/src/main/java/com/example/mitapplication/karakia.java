@@ -29,6 +29,8 @@ TextToSpeech t1;
             public void onInit(int status) {
                 if(status != TextToSpeech.ERROR){
                     t1.setLanguage(Locale.ENGLISH);
+                    t1.setSpeechRate(0.4f);
+                    t1.setPitch((float) 0.7);
                 }
             }
         });
@@ -40,5 +42,12 @@ TextToSpeech t1;
                 t1.speak(text, TextToSpeech.QUEUE_FLUSH, null);
             }
         });
+    }
+    public void onPause(){
+        if(t1 !=null){
+            t1.stop();
+            t1.shutdown();
+        }
+        super.onPause();
     }
 }
