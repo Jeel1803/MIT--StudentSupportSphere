@@ -9,7 +9,7 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    public CardView manageProfileCard, viewTimetbableCard, viewGradesCard, chatAssistanceCard, karkiaCard,findFriendsCard;
+    public CardView manageProfileCard, viewTimetbableCard, viewGradesCard, chatAssistanceCard, karkiaCard,findFriendsCard, studentCupportCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         chatAssistanceCard = (CardView) findViewById(R.id.chatAssistanceCard);
         karkiaCard = (CardView) findViewById(R.id.karakia);
         findFriendsCard = (CardView) findViewById(R.id.findFriendsCard);
+        studentCupportCard = (CardView) findViewById(R.id.StudentSupportCard);
+
 
 
         manageProfileCard.setOnClickListener(this);
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         chatAssistanceCard.setOnClickListener(this);
         karkiaCard.setOnClickListener(this);
         findFriendsCard.setOnClickListener(this);
+        studentCupportCard.setOnClickListener(this);
 
     }
 
@@ -62,6 +65,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.findFriendsCard:
                 intent = new Intent(this, findFriends.class);
+                startActivity(intent);
+                break;
+            case R.id.StudentSupportCard:
+                intent = new Intent(this, studentSupport.class);
                 startActivity(intent);
                 break;
         }

@@ -1,0 +1,845 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".studentSupport">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/bg_header"
+        android:orientation="horizontal"
+        android:baselineAligned="false">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/txt_appbar_listActivity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentEnd="false"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="21dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="7dp"
+                android:layout_marginBottom="7dp"
+                android:gravity="left"
+                android:text="My \nDashboard"
+                android:textColor="@color/white"
+                android:textSize="30dp"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentEnd="false"
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="21dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="7dp"
+                android:gravity="right"
+                android:src="@drawable/mit_reduced">
+
+            </ImageView>
+
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:baselineAligned="false"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="10dp">
+
+
+<!--
+        <androidx.cardview.widget.CardView
+            android:id="@+id/askYourselfCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="3dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:elevation="5dp"
+            android:focusable="true"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="5dp"
+            app:cardMaxElevation="5dp">
+
+            <LinearLayout
+                android:id="@+id/start1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFDFA"
+                android:orientation="vertical"
+
+                android:padding="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+                app:layout_constraintVertical_bias="0.033"
+                tools:layout_editor_absoluteX="0dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="25dp"
+                    android:text="Ask yourself!!"
+                    android:textSize="30dp"></TextView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="49dp"
+                        android:src="@drawable/ic_baseline_alternate_email_24"></ImageView>
+
+                    <TextView
+                        android:id="@+id/email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:text="askyourself@mit.com"
+                        android:textAlignment="center"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="49dp"
+                        android:src="@drawable/ic_baseline_phone_24"></ImageView>
+
+                    <TextView
+                        android:id="@+id/phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:text="xxxxxxxxxx"
+                        android:textAlignment="center"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+-->
+<!--
+        <androidx.cardview.widget.CardView
+            android:layout_below="@+id/askYourselfCard"
+            android:id="@+id/StudentSupportCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="3dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:elevation="5dp"
+            android:focusable="true"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="5dp"
+            app:cardMaxElevation="5dp"
+            >
+
+            <LinearLayout
+                android:id="@+id/start2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFDFA"
+                android:orientation="vertical"
+
+                android:padding="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+                app:layout_constraintVertical_bias="0.033"
+                tools:layout_editor_absoluteX="0dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="25dp"
+                    android:text="Student Support"
+                    android:textSize="30dp"></TextView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="49dp"
+                        android:src="@drawable/ic_baseline_alternate_email_24"></ImageView>
+
+                    <TextView
+                        android:id="@+id/StudentSupportEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:text="advisor@mit.com"
+                        android:textAlignment="center"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="49dp"
+                        android:src="@drawable/ic_baseline_phone_24"></ImageView>
+
+                    <TextView
+                        android:id="@+id/StudentSupportPhone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:text="xxxxxxxxxx"
+                        android:textAlignment="center"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+-->
+<!--
+        <androidx.cardview.widget.CardView
+            android:layout_below="@+id/counsellor"
+            android:id="@+id/counsellorCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="3dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:elevation="5dp"
+            android:focusable="true"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="5dp"
+            app:cardMaxElevation="5dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFDFA"
+                android:orientation="vertical"
+
+                android:padding="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+                app:layout_constraintVertical_bias="0.033"
+                tools:layout_editor_absoluteX="0dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="25dp"
+                    android:text="Counsellor"
+                    android:textSize="30dp"></TextView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="49dp"
+                        android:src="@drawable/ic_baseline_alternate_email_24"></ImageView>
+
+                    <TextView
+                        android:id="@+id/counsellorEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:text="counsellor@mit.com"
+                        android:textAlignment="center"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="49dp"
+                        android:src="@drawable/ic_baseline_phone_24"></ImageView>
+
+                    <TextView
+                        android:id="@+id/counsellorPhone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:text="xxxxxxxxxx"
+                        android:textAlignment="center"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+-->
+<!--
+        <androidx.cardview.widget.CardView
+            android:id="@+id/disabilityCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="3dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:elevation="5dp"
+            android:focusable="true"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="5dp"
+            app:cardMaxElevation="5dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFDFA"
+                android:orientation="vertical"
+
+                android:padding="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+                app:layout_constraintVertical_bias="0.033"
+                tools:layout_editor_absoluteX="0dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="25dp"
+                    android:text="Disability Support"
+                    android:textSize="30dp"></TextView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="49dp"
+                        android:src="@drawable/ic_baseline_alternate_email_24"></ImageView>
+
+                    <TextView
+                        android:id="@+id/disabilityEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:text="disability@mit.com"
+                        android:textAlignment="center"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="49dp"
+                        android:src="@drawable/ic_baseline_phone_24"></ImageView>
+
+                    <TextView
+                        android:id="@+id/disabilityPhone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:text="xxxxxxxxxx"
+                        android:textAlignment="center"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+-->
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:baselineAligned="false"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="10dp">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/askYourselfCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="3dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:elevation="5dp"
+            android:focusable="true"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="5dp"
+            app:cardMaxElevation="5dp">
+
+            <LinearLayout
+                android:id="@+id/start1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFDFA"
+                android:orientation="vertical"
+
+                android:padding="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+                app:layout_constraintVertical_bias="0.033"
+                tools:layout_editor_absoluteX="0dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="25dp"
+                    android:text="Ask yourself!!"
+                    android:textSize="30dp"></TextView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="49dp"
+                        android:src="@drawable/ic_baseline_alternate_email_24"></ImageView>
+
+                    <TextView
+                        android:id="@+id/askYourselfEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:text="askyourself@mit.com"
+                        android:textAlignment="center"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="49dp"
+                        android:src="@drawable/ic_baseline_phone_24"></ImageView>
+
+                    <TextView
+                        android:id="@+id/askYpurselfPhone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:text="xxxxxxxxxx"
+                        android:textAlignment="center"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:baselineAligned="false"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="10dp">
+            <androidx.cardview.widget.CardView
+                android:layout_below="@+id/askYourselfCard"
+                android:id="@+id/StudentSupportCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="6dp"
+                android:layout_marginBottom="3dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:elevation="5dp"
+                android:focusable="true"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="5dp"
+                app:cardMaxElevation="5dp"
+                >
+
+                <LinearLayout
+                    android:id="@+id/start2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFDFA"
+                    android:orientation="vertical"
+
+                    android:padding="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+                    app:layout_constraintVertical_bias="0.033"
+                    tools:layout_editor_absoluteX="0dp">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="25dp"
+                        android:text="Student Support"
+                        android:textSize="30dp"></TextView>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="49dp"
+                            android:src="@drawable/ic_baseline_alternate_email_24"></ImageView>
+
+                        <TextView
+                            android:id="@+id/studentSupportEmail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:padding="10dp"
+                            android:text="advisor@mit.com"
+                            android:textAlignment="center"
+                            android:textSize="18dp">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="49dp"
+                            android:src="@drawable/ic_baseline_phone_24"></ImageView>
+
+                        <TextView
+                            android:id="@+id/studentSupportPhone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:padding="10dp"
+                            android:text="xxxxxxxxxx"
+                            android:textAlignment="center"
+                            android:textSize="18dp">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:baselineAligned="false"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="10dp">
+            <androidx.cardview.widget.CardView
+                android:layout_below="@+id/counsellor"
+                android:id="@+id/counsellorCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="6dp"
+                android:layout_marginBottom="3dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:elevation="5dp"
+                android:focusable="true"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="5dp"
+                app:cardMaxElevation="5dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFDFA"
+                    android:orientation="vertical"
+
+                    android:padding="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+                    app:layout_constraintVertical_bias="0.033"
+                    tools:layout_editor_absoluteX="0dp">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="25dp"
+                        android:text="Counsellor"
+                        android:textSize="30dp"></TextView>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="49dp"
+                            android:src="@drawable/ic_baseline_alternate_email_24"></ImageView>
+
+                        <TextView
+                            android:id="@+id/counsellorEmail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:padding="10dp"
+                            android:text="counsellor@mit.com"
+                            android:textAlignment="center"
+                            android:textSize="18dp">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="49dp"
+                            android:src="@drawable/ic_baseline_phone_24"></ImageView>
+
+                        <TextView
+                            android:id="@+id/counsellorPhone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:padding="10dp"
+                            android:text="xxxxxxxxxx"
+                            android:textAlignment="center"
+                            android:textSize="18dp">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:baselineAligned="false"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="10dp">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/disabilityCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="6dp"
+                android:layout_marginBottom="3dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:elevation="5dp"
+                android:focusable="true"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="5dp"
+                app:cardMaxElevation="5dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFDFA"
+                    android:orientation="vertical"
+
+                    android:padding="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+                    app:layout_constraintVertical_bias="0.033"
+                    tools:layout_editor_absoluteX="0dp">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="25dp"
+                        android:text="Disability Support"
+                        android:textSize="30dp"></TextView>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="49dp"
+                            android:src="@drawable/ic_baseline_alternate_email_24"></ImageView>
+
+                        <TextView
+                            android:id="@+id/disabilityEmail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:padding="10dp"
+                            android:text="disability@mit.com"
+                            android:textAlignment="center"
+                            android:textSize="18dp">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="49dp"
+                            android:src="@drawable/ic_baseline_phone_24"></ImageView>
+
+                        <TextView
+                            android:id="@+id/disabilityPhone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:padding="10dp"
+                            android:text="xxxxxxxxxx"
+                            android:textAlignment="center"
+                            android:textSize="18dp">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
