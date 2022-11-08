@@ -26,6 +26,13 @@
         android:theme="@style/Theme.MITApplication"
         tools:targetApi="31">
         <activity
+            android:name=".Empty"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".studentSupport"
             android:exported="false">
             <meta-data
