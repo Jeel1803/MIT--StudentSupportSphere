@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class managePersonalDetails extends AppCompatActivity {
-    EditText Sid, Name, Address, Phone, Email, Password;
+    EditText Sid, Name, Address, Phone, PersonalEmail, Password;
     TextView Username;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
@@ -55,7 +55,7 @@ public class managePersonalDetails extends AppCompatActivity {
         Name = findViewById(R.id.name);
         Address = findViewById(R.id.address);
         Phone = findViewById(R.id.phone);
-        Email = findViewById(R.id.email);
+       PersonalEmail = findViewById(R.id.email);
         Save = findViewById(R.id.save);
         Username = findViewById(R.id.username);
         ProfileImage = findViewById(R.id.profileImage);
@@ -66,7 +66,7 @@ public class managePersonalDetails extends AppCompatActivity {
         Name.setEnabled(false);
         Address.setEnabled(false);
         Phone.setEnabled(false);
-        Email.setEnabled(false);
+        PersonalEmail.setEnabled(false);
         Password.setEnabled(false);
         Save.setEnabled(false);
 
@@ -95,7 +95,7 @@ public class managePersonalDetails extends AppCompatActivity {
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
                 Phone.setText(documentSnapshot.getString("Phone"));
                 Name.setText(documentSnapshot.getString("Name"));
-                Email.setText(documentSnapshot.getString("PersonalEmail"));
+             PersonalEmail.setText(documentSnapshot.getString("PersonalEmail"));
                 Address.setText(documentSnapshot.getString("Address"));
                 Sid.setText((documentSnapshot.getString("StudentID")));
                 Password.setText((documentSnapshot.getString("Password")));
@@ -117,25 +117,25 @@ public class managePersonalDetails extends AppCompatActivity {
         Save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(Name.getText().toString().isEmpty() || Phone.getText().toString().isEmpty() || Email.getText().toString().isEmpty() || Address.getText().toString().isEmpty()) {
+                if(Name.getText().toString().isEmpty() || Phone.getText().toString().isEmpty() || PersonalEmail.getText().toString().isEmpty() || Address.getText().toString().isEmpty())
+                {
                     Toast.makeText(managePersonalDetails.this, "One of Many fields are empty",Toast.LENGTH_SHORT).show();
                     return;
                 }
 
 
 
-                String email = Email.getText().toString();
+                String email = Username.getText().toString();
                 user.updateEmail(email).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
                         DocumentReference documentReference = fStore.collection("students").document(userId);
                         Map<String,Object> edited = new HashMap<>();
-                        edited.put("Email", email);
                         edited.put("Name", Name.getText().toString());
                         edited.put("Address", Address.getText().toString());
                         edited.put("Password", Password.getText().toString());
                         edited.put("Phone", Phone.getText().toString());
-                        edited.put("PersonalEmail", Email.getText().toString());
+                        edited.put("PersonalEmail", PersonalEmail.getText().toString());
 
 
                         documentReference.update(edited);
@@ -222,7 +222,7 @@ public class managePersonalDetails extends AppCompatActivity {
         Name.setEnabled(true);
         Address.setEnabled(true);
         Phone.setEnabled(true);
-        Email.setEnabled(true);
+        PersonalEmail.setEnabled(true);
         Password.setEnabled(true);
         Save.setEnabled(true);
 

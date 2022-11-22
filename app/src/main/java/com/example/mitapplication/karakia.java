@@ -2,8 +2,12 @@ package com.example.mitapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.speech.tts.TextToSpeech;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -13,41 +17,39 @@ import java.util.Locale;
 
 public class karakia extends AppCompatActivity {
 ImageButton btn;
-TextView txtView;
+TextView txtView, stop;
 
-TextToSpeech t1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_karakia);
         btn = findViewById(R.id.playButton);
-        txtView = findViewById(R.id.karakiaText);
-
-        t1 = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
-            @Override
-            public void onInit(int status) {
-                if(status != TextToSpeech.ERROR){
-                    t1.setLanguage(Locale.ENGLISH);
-                    t1.setSpeechRate(0.4f);
-                    t1.setPitch((float) 0.7);
-                }
-            }
-        });
+        stop = findViewById(R.id.stop);
+        MediaPlayer mp = MediaPlayer.create(this, R.raw.karakia_music);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String text = txtView.getText().toString();
-                t1.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+                if(mp.isPlaying()== true) {
+                    mp.pause();
+                    stop.setVisibility(View.INVISIBLE);
+                }
+                else {
+                    mp.start();
+                    stop.setVisibility(View.VISIBLE);
+                }
+
             }
         });
+        setupHyperlink();
+
     }
-    public void onPause(){
-        if(t1 !=null){
-            t1.stop();
-            t1.shutdown();
-        }
-        super.onPause();
+
+    private void setupHyperlink() {
+        TextView linkTextView = findViewById(R.id.hyperlink);
+        linkTextView.setMovementMethod(LinkMovementMethod.getInstance());
     }
 }

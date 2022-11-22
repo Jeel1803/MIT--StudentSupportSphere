@@ -74,7 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/profile"
-            android:layout_marginTop="-20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:elevation="5dp"
@@ -87,14 +87,14 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="0dp"
                 android:orientation="vertical">
+
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
+                    android:textAlignment="center"
                     android:layout_marginTop="25dp"
-                    android:textSize="50dp"
-                    android:text="Karakia">
-                </TextView>
+                    android:text="Karakia Timatanga"
+                    android:textSize="40dp"></TextView>
 
                 <TextView
                     android:id="@+id/karakiaText"
@@ -102,27 +102,44 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="25dp"
+                    android:padding="10dp"
+                    android:text="He hōnore, he korōria\nMaungārongo ki te whenua\nWhakaaro pai e\nKi ngā tangata katoa\nAke ake, ake ake\nĀmine\nTe Atua, te piringa,\nTōku oranga\n\nHonour, glory and\npeace to the land\nMay good thoughts come\nto all men\nfor ever and ever,﻿ for ever and ever.\nAmen.\nThe Lord is the refugeand my life."
                     android:textAlignment="center"
-                    android:textSize="18dp"
-                    android:text="He hōnore, \nhe korōria ki te Atua He maungārongo ki te whenua \nHe whakaaro pai ki ngā tāngata katoa \nHangā e te Atua he ngākau hou \nKi roto, ki tēnā, ki tēnā o mātou \nWhakatōngia to wairua tapu \nHei awhina, hei tohutohu i a mātou \nHei ako hoki i ngā mahi mō tēnei rā \nAmine"
-                    android:padding="10dp">
+                    android:textSize="18dp"></TextView>
+
+
+                <TextView
+                    android:id="@+id/stop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tap to Stop"
+                    android:visibility="invisible"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="40dp">
+
                 </TextView>
 
                 <ImageButton
                     android:id="@+id/playButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/mic"
-                    android:background="@color/white"
                     android:layout_gravity="center"
-                    android:layout_marginTop="40dp"
-                    >
+                    android:layout_marginTop="0dp"
+                    android:background="@color/white"
+                    android:src="@drawable/mic"
+                    tools:ignore="SpeakableTextPresentCheck">
 
                 </ImageButton>
+                <TextView
+                    android:id="@+id/hyperlink"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/hyperlink">
 
-
-
-
+                </TextView>
 
 
             </androidx.appcompat.widget.LinearLayoutCompat>

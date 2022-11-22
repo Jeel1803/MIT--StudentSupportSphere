@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MITApplication</string>
+    <string name="hyperlink">Audio Credits: <a href="https://www.youtube.com/watch?v=asCIKbiNa0k">Embracing Te Reo Māori!</a></string>
 </resources>

@@ -71,7 +71,7 @@
     </LinearLayout>
 
     <Button
-        android:text="ON/OFF"
+        android:text="ON/OFF Bluetooth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -80,7 +80,7 @@
         android:id="@+id/btnONOFF"/>
 
     <Button
-        android:text="Enable Discoverable"
+        android:text="Enable Your visibility"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnDiscoverable_on_off"
@@ -93,7 +93,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnFindUnpairedDevices"
-        android:text="Discover"
+        android:text="Find nearby Friends"
         android:layout_gravity="center"
         android:onClick="btnDiscover"/>
 
